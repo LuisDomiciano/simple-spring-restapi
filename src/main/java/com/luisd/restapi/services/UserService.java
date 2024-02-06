@@ -32,7 +32,11 @@ public class UserService {
         newUser.setName(obj.getName());
         newUser.setLogin(obj.getLogin());
         newUser.setPassword(obj.getPassword());
-        return userRepository.save(newUser);
-        
+        return userRepository.save(newUser);   
+    }
+
+    public UserDomain create(UserDomain obj) {
+        obj.setId(null);
+        return userRepository.save(obj);
     }
 }
