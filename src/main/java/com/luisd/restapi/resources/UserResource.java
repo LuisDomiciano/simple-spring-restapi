@@ -1,5 +1,7 @@
 package com.luisd.restapi.resources;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,5 +24,10 @@ public class UserResource {
     @GetMapping(value = "/{id}")
     public ResponseEntity<UserDomain> findById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(this.userService.findById(id));
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<UserDomain>> findAll() {
+        return ResponseEntity.ok().body(userService.findAll());
     }
 }

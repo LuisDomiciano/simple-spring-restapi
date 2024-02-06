@@ -1,5 +1,6 @@
 package com.luisd.restapi.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -20,5 +21,9 @@ public class UserService {
     public UserDomain findById(Integer id) {
         Optional<UserDomain> obj = userRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id: " + id + ", type: " + UserDomain.class.getName()));
+    }
+
+    public List<UserDomain> findAll() {
+       return userRepository.findAll();
     }
 }
