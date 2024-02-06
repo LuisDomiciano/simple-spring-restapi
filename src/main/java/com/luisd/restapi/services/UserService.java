@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.luisd.restapi.domain.UserDomain;
 import com.luisd.restapi.repositories.UserRepository;
+import com.luisd.restapi.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -18,6 +19,6 @@ public class UserService {
 
     public UserDomain findById(Integer id) {
         Optional<UserDomain> obj = userRepository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found! Id: " + id + ", type: " + UserDomain.class.getName()));
     }
 }
