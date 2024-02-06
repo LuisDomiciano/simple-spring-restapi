@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 
-@Entity(name = "user")
+@Entity(name = "tb_user")
 public class UserDomain implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
