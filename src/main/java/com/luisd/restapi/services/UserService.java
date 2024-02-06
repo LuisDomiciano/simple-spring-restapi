@@ -26,4 +26,13 @@ public class UserService {
     public List<UserDomain> findAll() {
        return userRepository.findAll();
     }
+
+    public UserDomain update(Integer id, UserDomain obj) {
+        UserDomain newUser = findById(id);
+        newUser.setName(obj.getName());
+        newUser.setLogin(obj.getLogin());
+        newUser.setPassword(obj.getPassword());
+        return userRepository.save(newUser);
+        
+    }
 }
